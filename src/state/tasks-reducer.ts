@@ -1,4 +1,4 @@
-import {FilterValuesType, TodoListType} from "../App"
+import {FilterValuesType, TodolistType} from "../App"
 import {v1} from "uuid";
 
 type RemoveTodolistActionType = {
@@ -30,12 +30,12 @@ export type ActionType =
     | ChangeTodolistFilterActionType
 
 
-export function taskReduser(state: Array<TodoListType>, action: ActionType): Array<TodoListType> {
+export function taskReduser(state: Array<TodolistType>, action: ActionType): Array<TodolistType> {
     switch (action.type) {
         case 'REMOVE-TODOLIST':
             return state.filter(tl => tl.id !== action.id)
         case 'ADD-TODOLIST':
-            const newTodolist: TodoListType = {
+            const newTodolist: TodolistType = {
                 id: v1(),
                 title: action.title,
                 filter: 'all'
